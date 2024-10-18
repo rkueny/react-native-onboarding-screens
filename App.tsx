@@ -1,8 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
 
-import { Onboarding } from './src/screens/Onboarding';
+import { Onboarding } from "./src/screens/Onboarding";
+import { theme } from "./src/constants/theme";
 
 export default function App() {
   return (
@@ -17,5 +18,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: theme.colors.backgroundColor,
   },
 });

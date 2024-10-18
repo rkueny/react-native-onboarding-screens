@@ -1,14 +1,14 @@
-import { Feather } from '@expo/vector-icons';
-import React, { RefObject } from 'react';
-import { FlatList, Pressable, StyleSheet } from 'react-native';
+import { Feather } from "@expo/vector-icons";
+import React, { RefObject } from "react";
+import { FlatList, Pressable, StyleSheet } from "react-native";
 import Animated, {
   SharedValue,
   useAnimatedStyle,
   withSpring,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
-import { theme } from '../constants/theme';
+import { theme } from "../constants/theme";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 const AnimatedFeather = Animated.createAnimatedComponent(Feather);
@@ -68,12 +68,14 @@ export function Button({
         Get Started
       </Animated.Text>
 
-      <AnimatedFeather
-        name="arrow-right"
-        size={30}
-        color={theme.colors.textHighlightColor}
-        style={[styles.arrow, arrowAnimationStyle]}
-      />
+      {flatListIndex.value !== dataLength - 1 && (
+        <AnimatedFeather
+          name="arrow-right"
+          size={30}
+          color={theme.colors.textHighlightColor}
+          style={[styles.arrow, arrowAnimationStyle]}
+        />
+      )}
     </AnimatedPressable>
   );
 }
@@ -83,17 +85,17 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.backgroundHighlightColor,
     padding: 10,
     borderRadius: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
   },
   arrow: {
-    position: 'absolute',
+    position: "absolute",
   },
   text: {
-    position: 'absolute',
+    position: "absolute",
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.colors.textHighlightColor,
   },
 });
